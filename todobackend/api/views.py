@@ -9,13 +9,6 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate
 
-class TodoList(generics.ListAPIView):
-    serializer_class = TodoSerializer
-
-    def get_queryset(self):
-        user = user.request.user
-        return Todo.objects.filter(user=user).order_by("-created")
-
 class TodoListCreate(generics.ListCreateAPIView):
     serializer_class = TodoSerializer
     permission_classes = [permissions.IsAuthenticated]
