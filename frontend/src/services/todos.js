@@ -2,6 +2,7 @@ import axios from 'axios';
 
 class TodoDataService {
   getAll(token) {
+    console.log("getAll " + token);
     axios.defaults.headers.common["Authorization"] = "Token " + token;
     return axios.get("http://localhost:8000/api/todos/");
   }
@@ -27,6 +28,7 @@ class TodoDataService {
   }
 
   login(data) {
+    console.log("login " + data.username + " : " + data.password);
     return axios.post("http://localhost:8000/api/login", data);
   }
 

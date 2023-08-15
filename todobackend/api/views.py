@@ -62,11 +62,13 @@ def signup(request):
 def login(request):
     if request.method == "POST":
         data = JSONParser().parse(request)
+        print(f"login: {request.method} {data}")
         user = authenticate(
             request,
             username=data["username"],
             password=data["password"],
         )
+        print(f"user={user}")
         if user is None:
             return JsonResponse(
                 {"error": "failed to login. check username or password"},

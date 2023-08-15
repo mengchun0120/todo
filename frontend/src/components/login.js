@@ -20,9 +20,7 @@ const Login = (props) => {
 
   const login = () => {
     props.login({username: username, password: password});
-    console.log("after login");
     props.history.push('/');
-    console.log("after push");
   }
 
   return (
